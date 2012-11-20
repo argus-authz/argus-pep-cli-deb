@@ -1,0 +1,5 @@
+/debbuild
+/*.deb
+/*.tar.gz
+/*.dsc
+/argus-pep-cli
