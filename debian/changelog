@@ -1,3 +1,9 @@
+argus-pepcli (2.2.0-1) unstable; urgency=low
+
+  * Upstream version 2.2.0 for EMI-3.
+
+ -- Valery Tschopp <valery.tschopp@switch.ch>  Tue, 20 Nov 2012 13:36:44 +0100
+
 argus-pepcli (2.1.1-1) unstable; urgency=low
 
   * Initial release for Debian (Closes: #23482) 
