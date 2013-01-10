@@ -22,10 +22,10 @@ deb_name = argus-pepcli
 version = 2.2.0
 release = 1
 
+dist_url = http://argus-authz.github.com/$(name)/distrib/$(deb_name)-$(version).tar.gz
+
 git_url = https://github.com/argus-authz/$(name).git
 git_branch = EMI-3
-
-dist_url = https://github.com/downloads/argus-authz/$(name)/$(deb_name)-$(version).tar.gz
 
 debbuild_dir = $(CURDIR)/debbuild
 
@@ -33,7 +33,7 @@ all: deb-src
 
 clean:
 	@echo "Cleaning..."
-	rm -rf $(debbuild_dir) *.deb $(name)*
+	rm -rf $(debbuild_dir) *.deb $(name) $(deb_name)*
 
 pre_debbuild:
 	@echo "Prepare for Debian building in $(debbuild_dir)"
@@ -57,6 +57,6 @@ git_source:
 	@echo "Checkout source from $(git_url)"
 	git clone $(git_url)
 	(cd $(name) && git checkout $(git_branch))
-	(cd $(name) && make dist)
+	(cd $(name) && ./autotools.sh && ./configure && make dist)
 	mkdir -p $(debbuild_dir)
 	cp $(name)/$(deb_name)-$(version).tar.gz $(debbuild_dir)/$(deb_name)_$(version).orig.tar.gz
